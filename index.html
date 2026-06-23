@@ -52,7 +52,6 @@ src="https://www.facebook.com/tr?id=1055757917347958&ev=PageView&noscript=1"
   }
   ::selection{background:var(--gold);color:var(--ink)}
 
-  /* ---------- ambient texture ---------- */
   .noise{
     position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.05;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
@@ -62,7 +61,6 @@ src="https://www.facebook.com/tr?id=1055757917347958&ev=PageView&noscript=1"
 
   h1,h2,h3,.serif{font-family:'Fraunces',serif}
 
-  /* ---------- buttons ---------- */
   .cta{
     display:inline-flex;align-items:center;justify-content:center;gap:12px;
     background:linear-gradient(135deg,var(--gold-2),var(--gold) 45%,var(--gold-deep));
@@ -73,10 +71,11 @@ src="https://www.facebook.com/tr?id=1055757917347958&ev=PageView&noscript=1"
     transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s;
     font-family:'Outfit',sans-serif;
   }
+  .cta span{position:relative;z-index:2}
   .cta::after{
     content:'';position:absolute;top:0;left:-120%;width:60%;height:100%;
     background:linear-gradient(120deg,transparent,rgba(255,255,255,.55),transparent);
-    transform:skewX(-20deg);transition:left .7s;
+    transform:skewX(-20deg);transition:left .7s;z-index:1;pointer-events:none;
   }
   .cta:hover{transform:translateY(-3px) scale(1.015);box-shadow:0 0 70px rgba(231,183,63,.55)}
   .cta:hover::after{left:140%}
@@ -90,14 +89,13 @@ src="https://www.facebook.com/tr?id=1055757917347958&ev=PageView&noscript=1"
     margin-bottom:26px;
   }
 
-  /* ---------- reveal animation ---------- */
   .reveal{opacity:0;transform:translateY(38px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
   .reveal.in{opacity:1;transform:none}
   .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}
   .reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}
   .reveal.d5{transition-delay:.4s}.reveal.d6{transition-delay:.48s}
 
-  /* ================= HERO ================= */
+  /* HERO */
   .hero{
     position:relative;padding:70px 0 90px;text-align:center;
     background:
@@ -145,14 +143,13 @@ src="https://www.facebook.com/tr?id=1055757917347958&ev=PageView&noscript=1"
     line-height:1;color:var(--gold);margin:4px 0 8px;text-shadow:0 0 40px rgba(231,183,63,.4);
   }
   .price-box .tag{color:var(--gold-2);font-weight:600;font-size:.92rem;letter-spacing:.4px}
-  .hero .cta{margin-top:30px}
   .trust{
-    display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:center;margin-top:24px;
+    display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:center;margin-top:30px;
     font-size:.88rem;color:var(--muted)
   }
   .trust span{display:inline-flex;align-items:center;gap:7px}
 
-  /* ================= SECTION TITLE ================= */
+  /* SECTION TITLE */
   .sec{padding:88px 0;position:relative}
   .sec-head{text-align:center;max-width:740px;margin:0 auto 56px}
   .sec-head h2{
@@ -161,7 +158,7 @@ src="https://www.facebook.com/tr?id=1055757917347958&ev=PageView&noscript=1"
   .sec-head h2 .hl{color:var(--gold);font-style:italic}
   .sec-head p{color:var(--muted);font-size:1.1rem;margin-top:16px}
 
-  /* ================= VANTAGENS ================= */
+  /* VANTAGENS */
   .adv{
     background:
       radial-gradient(600px 400px at 0% 0%,rgba(231,183,63,.06),transparent 55%),
@@ -175,7 +172,7 @@ src="https://www.facebook.com/tr?id=1055757917347958&ev=PageView&noscript=1"
   }
   .adv-card::before{
     content:'';position:absolute;inset:0;background:radial-gradient(300px 200px at var(--mx,50%) var(--my,0%),rgba(231,183,63,.12),transparent 60%);
-    opacity:0;transition:opacity .4s;
+    opacity:0;transition:opacity .4s;pointer-events:none;
   }
   .adv-card:hover{transform:translateY(-6px);border-color:rgba(231,183,63,.45);box-shadow:0 30px 60px rgba(0,0,0,.5)}
   .adv-card:hover::before{opacity:1}
@@ -188,7 +185,7 @@ src="https://www.facebook.com/tr?id=1055757917347958&ev=PageView&noscript=1"
   .adv-card h3{font-size:1.28rem;font-weight:600;margin-bottom:10px;position:relative;z-index:1;line-height:1.2}
   .adv-card p{color:var(--muted);font-size:.98rem;position:relative;z-index:1}
 
-  /* ================= ENTREGÁVEIS ================= */
+  /* ENTREGÁVEIS */
   .deliv{background:var(--ink)}
   .deliv-list{max-width:840px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
   .deliv-item{
@@ -206,7 +203,7 @@ src="https://www.facebook.com/tr?id=1055757917347958&ev=PageView&noscript=1"
   .deliv-item p{color:var(--muted);font-size:.98rem}
   .deliv-item .seal{font-size:.78rem;color:var(--gold);font-weight:600;letter-spacing:1px;text-transform:uppercase}
 
-  /* ================= PARA QUEM (light/cream) ================= */
+  /* PARA QUEM */
   .forwho{
     background:linear-gradient(180deg,var(--cream),var(--cream-2));color:var(--cream-ink);
     position:relative;
@@ -233,7 +230,7 @@ src="https://www.facebook.com/tr?id=1055757917347958&ev=PageView&noscript=1"
   .who-card p{font-size:1.02rem;color:var(--cream-ink);font-weight:500;line-height:1.5}
   .who-card p b{color:var(--gold-deep)}
 
-  /* ================= BÔNUS ================= */
+  /* BÔNUS */
   .bonus{
     background:
       radial-gradient(700px 500px at 100% 0%,rgba(231,183,63,.08),transparent 55%),
@@ -259,7 +256,7 @@ src="https://www.facebook.com/tr?id=1055757917347958&ev=PageView&noscript=1"
   .bonus-card .val{margin-top:14px;font-size:.9rem;color:#eadfc6}
   .bonus-card .val s{color:var(--muted)}
 
-  /* ================= OFERTA / RECAP ================= */
+  /* OFERTA */
   .offer{
     background:
       radial-gradient(800px 600px at 50% 120%,rgba(231,183,63,.16),transparent 60%),
@@ -287,7 +284,7 @@ src="https://www.facebook.com/tr?id=1055757917347958&ev=PageView&noscript=1"
   .recap-total .price{font-family:'Fraunces',serif;font-weight:900;font-size:2.6rem;color:var(--gold);line-height:1}
   .offer .scarcity{margin-top:22px;font-size:.9rem;color:var(--muted);display:inline-flex;gap:8px;align-items:center}
 
-  /* ================= GARANTIA ================= */
+  /* GARANTIA */
   .guarantee{background:var(--ink)}
   .g-box{
     max-width:880px;margin:0 auto;display:flex;gap:34px;align-items:center;
@@ -296,14 +293,14 @@ src="https://www.facebook.com/tr?id=1055757917347958&ev=PageView&noscript=1"
     border:1px solid var(--line);position:relative;overflow:hidden;
   }
   .g-box::before{content:'';position:absolute;width:300px;height:300px;border-radius:50%;
-    background:radial-gradient(circle,rgba(231,183,63,.15),transparent 70%);top:-100px;right:-80px}
+    background:radial-gradient(circle,rgba(231,183,63,.15),transparent 70%);top:-100px;right:-80px;pointer-events:none}
   .g-shield{flex-shrink:0;width:120px;height:120px;display:grid;place-items:center;position:relative;z-index:1}
   .g-text{flex:1;min-width:260px;position:relative;z-index:1}
   .g-text h3{font-size:clamp(1.5rem,4vw,2rem);font-weight:700;margin-bottom:12px}
   .g-text p{color:var(--muted);font-size:1.05rem}
   .g-text p b{color:#f3ead5}
 
-  /* ================= FAQ ================= */
+  /* FAQ */
   .faq{background:var(--ink-2)}
   .faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
   .faq-item{
@@ -327,7 +324,7 @@ src="https://www.facebook.com/tr?id=1055757917347958&ev=PageView&noscript=1"
   .faq-a{max-height:0;overflow:hidden;transition:max-height .45s ease}
   .faq-a p{padding:0 26px 24px;color:var(--muted);font-size:1rem}
 
-  /* ================= FOOTER ================= */
+  /* FOOTER */
   footer{background:var(--ink);padding:56px 0 40px;text-align:center;border-top:1px solid var(--line)}
   footer .fmark{font-family:'Fraunces',serif;font-size:1.3rem;color:var(--gold);font-weight:600;margin-bottom:8px}
   footer .links{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin:18px 0;font-size:.85rem}
@@ -570,7 +567,7 @@ src="https://www.facebook.com/tr?id=1055757917347958&ev=PageView&noscript=1"
       </div>
     </div>
 
-    <a href="#" class="cta cta-pulse reveal d2">Quero o acesso completo agora</a>
+    <a href="https://pay.kiwify.com.br/zPcgx0V" target="_blank" rel="noopener" class="cta cta-pulse reveal d2"><span>Quero o acesso completo agora</span></a>
     <div class="scarcity reveal d3">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#b8ad97" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
       Oferta válida apenas para os próximos compradores neste preço
